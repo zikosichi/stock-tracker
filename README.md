@@ -33,6 +33,13 @@ The user should be able to choose between 1 minute, 2 minutes, 5 minutes, 10 min
 The ability to click a stock in the overview, and view its entire price history over the past day, within 15 minutes intervals.
 Hint: Look into the [TIME_SERIES_INTRADAY documentation](https://www.alphavantage.co/documentation/#intraday).
 
+## Mock-ups
+We have provided you with very minimal mock-ups. That is, to leave you some room for innovation and design. However, try to make sure that the skeleton of your application remains the same as in the mock-up.
+
+* [Stocks overview mockup](mockups/stocks-overview.png)
+* [Add new stock mockup](mockups/add-new-stock.png)
+* [Stock daily history mockup (bonus)](mockups/stock-daily-history.png)
+
 
 ## The assignment
 #### Technology stack
