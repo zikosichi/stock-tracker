@@ -44,12 +44,13 @@ We have provided you with very minimal mock-ups. That is, to leave you some room
 ## The assignment
 #### Technology stack
 Please use the following technologies:
+
 * Angular (latest)
 * SCSS/SASS/CSS/HTML
 * Git version control (descriptive commit messages)
-* *BONUS* - Angular Material (otherwise, any other UI framework that you feel comfortrable working with)
-* *BONUS* - Follow the [Angular Styleguide](https://angular.io/guide/styleguide)
-* *BONUS* - Follow the [BEM](http://getbem.com/) methodology for CSS
+* BONUS - Angular Material (otherwise, any other UI framework that you feel comfortrable working with)
+* BONUS - Follow the [Angular Styleguide](https://angular.io/guide/styleguide)
+* BONUS - Follow the [BEM](http://getbem.com/) methodology for CSS
 
 #### Getting started and 
 You can start by cloning this repository. Then, start a new Angular project under a `client` folder using the Angluar CLI:
