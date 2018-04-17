@@ -47,9 +47,9 @@ Please use the following technologies:
 * Angular (latest)
 * SCSS/SASS/CSS/HTML
 * Git version control (descriptive commit messages)
-* *BONUS* - Angular Material (otherwise, any other UI framework that you feel comfortrable working with)
-* *BONUS* - Follow the [Angular Styleguide](https://angular.io/guide/styleguide)
-* *BONUS* - Follow the [BEM](http://getbem.com/) methodology for CSS
+* BONUS - Angular Material (otherwise, any other UI framework that you feel comfortrable working with)
+* BONUS - Follow the [Angular Styleguide](https://angular.io/guide/styleguide)
+* BONUS - Follow the [BEM](http://getbem.com/) methodology for CSS
 
 #### Getting started and submission
 You can start by cloning this repository. Then, start a new Angular project using the Angluar CLI:
