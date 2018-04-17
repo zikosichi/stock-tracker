@@ -44,6 +44,7 @@ We have provided you with very minimal mock-ups. That is, to leave you some room
 ## The assignment
 #### Technology stack
 Please use the following technologies:
+
 * Angular (latest)
 * SCSS/SASS/CSS/HTML
 * Git version control (descriptive commit messages)
