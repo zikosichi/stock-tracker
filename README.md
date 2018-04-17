@@ -51,12 +51,14 @@ Please use the following technologies:
 * *BONUS* - Follow the [Angular Styleguide](https://angular.io/guide/styleguide)
 * *BONUS* - Follow the [BEM](http://getbem.com/) methodology for CSS
 
-#### Getting started and submission
-You can start by cloning this repository. Then, start a new Angular project using the Angluar CLI:
+#### Getting started and 
+You can start by cloning this repository. Then, start a new Angular project under a `client` folder using the Angluar CLI:
 ```
 ng new client --style scss --skip-git --directory client
 ```
-Good luck! Once you are done with the assignment, you can submit it by creating a pull request to the *master* branch of this repository. We will evaluate your assignment as soon as possible.
+
+#### Submission
+Once you are done with the assignment, you can submit it by creating a pull request to the *master* branch of this repository. We will evaluate your assignment as soon as possible.
 
 #### Evaluation of your assignment
 Your assessment will be evaluated based on your proficiency and usage of the above technologies or any other technologies you chose to use. We expect you to treat this assignment as you would treat any other application you develop (with all its implications).
