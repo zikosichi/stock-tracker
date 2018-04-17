@@ -1,45 +1,57 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+![logo](https://s3-eu-central-1.amazonaws.com/payconig-prod-website/wp-content/uploads/sites/5/2017/11/27203505/payconiq_logo.png)
+# Payconiq Assessment - Market Tracker
+## The mission
+People struggle to keep track of their investments these days. Can you be the savior?
+You will be crafting a front-end application that consumes a live stocks market API to create a Market Tracker application.
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+To achieve that, you will consume the [Alpha Vantage API](https://www.alphavantage.co/). You can easily set up an account and [retrieve an API key](https://www.alphavantage.co/support/#api-key).
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Required features
+#### Stocks overview
+The ability to view all stocks that are being tracked. That includes each individual stock's **symbol, price and volume**. How the stocks will be displayed is completely up to you.
+Upon re-entering this view (for example, after creating a new stock), the data of all tracked stocks will be retrieved and displayed (so the most recent values are always displayed).
 
----
+#### Add a new stock
+The ability to add a single stock to the tracker.
+The [Batch Stock Quotes documentation](https://www.alphavantage.co/documentation/#batchquotes) will help you find out how to get stock(s) data.
 
-## Edit a file
+#### Remove a stock
+The ability to remove a stock from the tracker. That means, the stock will not be tracked or displayed anymore.
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+#### Persistence
+The user should be able to persist the tracked stocks. Find a way to save the stocks after every session (or in other words, ofter closing the browser window).
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
 
----
+## Bonus features
+These are not mandatory, but they will certainly impress us.
 
-## Create a file
+#### Live price update
+Right now, in order to get the new price of the stocks - the user has to refresh the page. Add support for live updates every X minutes.
+The user should be able to choose between 1 minute, 2 minutes, 5 minutes, 10 mintes, 15 minutes, 30 minutes and 60 minutes.
 
-Next, you’ll add a new file to this repository.
+#### Stock daily history view
+The ability to click a stock in the overview, and view its entire price history over the past day, within 15 minutes intervals.
+Hint: Look into the [TIME_SERIES_INTRADAY documentation](https://www.alphavantage.co/documentation/#intraday).
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+## The assignment
+#### Technology stack
+Please use the following technologies:
+* Angular (latest)
+* SCSS/SASS/CSS/HTML
+* Git version control (descriptive commit messages)
+* *BONUS* - Angular Material (otherwise, any other UI framework that you feel comfortrable working with)
+* *BONUS* - Follow the [Angular Styleguide](https://angular.io/guide/styleguide)
+* *BONUS* - Follow the [BEM](http://getbem.com/) methodology for CSS
 
----
+#### Getting started and submission
+You can start by cloning this repository. Then, start a new Angular project using the Angluar CLI:
+```
+ng new client --style scss --skip-git --directory client
+```
+Good luck! Once you are done with the assignment, you can submit it by creating a pull request to the *master* branch of this repository. We will evaluate your assignment as soon as possible.
 
-## Clone a repository
+#### Evaluation of your assignment
+Your assessment will be evaluated based on your proficiency and usage of the above technologies or any other technologies you chose to use. We expect you to treat this assignment as you would treat any other application you develop (with all its implications).
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+*Payconiq is in no way affiliated with Alpha Vantage. We use the API provided by Alpha Vantage for candidate evaluation purposes only.*
