@@ -7,6 +7,7 @@ You will be crafting a front-end application that consumes a live stocks market 
 To achieve that, you will consume the [Alpha Vantage API](https://www.alphavantage.co/). You can easily set up an account and [retrieve an API key](https://www.alphavantage.co/support/#api-key).
 
 ## Required features
+
 #### Stocks overview
 The ability to view all stocks that are being tracked. That includes each individual stock's **symbol, price and volume**. How the stocks will be displayed is completely up to you.
 Upon re-entering this view (for example, after creating a new stock), the data of all tracked stocks will be retrieved and displayed (so the most recent values are always displayed).
@@ -19,8 +20,7 @@ The [Batch Stock Quotes documentation](https://www.alphavantage.co/documentation
 The ability to remove a stock from the tracker. That means, the stock will not be tracked or displayed anymore.
 
 #### Persistence
-The user should be able to persist the tracked stocks. Find a way to save the stocks after every session (or in other words, ofter closing the browser window).
-
+The user should be able to persist the tracked stocks. Find a way to save the stocks, so the user can get back to it when opening the application again.
 
 ## Bonus features
 These are not mandatory, but they will certainly impress us.
@@ -30,7 +30,7 @@ Right now, in order to get the new price of the stocks - the user has to refresh
 The user should be able to choose between 1 minute, 2 minutes, 5 minutes, 10 mintes, 15 minutes, 30 minutes and 60 minutes.
 
 #### Stock daily history view
-The ability to click a stock in the overview, and view its entire price history over the past day, within 15 minutes intervals.
+The ability to click a stock in the overview, and view its entire price history over the past day, within 60 minute intervals.
 Hint: Look into the [TIME_SERIES_INTRADAY documentation](https://www.alphavantage.co/documentation/#intraday).
 
 ## Mock-ups
