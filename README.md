@@ -53,12 +53,11 @@ Please use the following technologies:
 * BONUS - Follow the [BEM](http://getbem.com/) methodology for CSS
 
 #### Getting started and 
-You can start by cloning this repository. The repository contains two branches - `master` and `develop`.
-Check out the `develop` branch:
+You can start by cloning this repository. Check out a new branch, named `develop`:
 
 ```
 git fetch
-git checkout develop
+git checkout -B develop
 ```
 
 Make sure to commit your changes to the `develop` branch only.
