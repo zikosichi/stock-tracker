@@ -71,7 +71,7 @@ ng new client --style scss --skip-git --directory client
 
 
 #### Submission
-Once you are done with the assignment, you can submit it by simply by merging back to the **master** branch.
+Once you are done with the assignment, you can submit it by creating a pull request from `develop` to `master`.
 We will be notified and begin evaluating your submission as soon as possible.
 
 #### Evaluation of your assignment
