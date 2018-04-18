@@ -53,13 +53,27 @@ Please use the following technologies:
 * BONUS - Follow the [BEM](http://getbem.com/) methodology for CSS
 
 #### Getting started and 
-You can start by cloning this repository. Then, start a new Angular project under a `client` folder using the Angluar CLI:
+You can start by cloning this repository. The repository contains two branches - `master` and `develop`.
+Check out the `develop` branch:
+
+```
+git fetch
+git checkout develop
+```
+
+Make sure to commit your changes to the `develop` branch only.
+
+
+Start a new Angular project under a `client` folder using the Angluar CLI:
+
 ```
 ng new client --style scss --skip-git --directory client
 ```
 
+
 #### Submission
-Once you are done with the assignment, you can submit it by creating a pull request to the *master* branch of this repository. We will evaluate your assignment as soon as possible.
+Once you are done with the assignment, you can submit it by simply by merging back to the **master** branch.
+We will be notified and begin evaluating your submission as soon as possible.
 
 #### Evaluation of your assignment
 Your assessment will be evaluated based on your proficiency and usage of the above technologies or any other technologies you chose to use. We expect you to treat this assignment as you would treat any other application you develop (with all its implications).
