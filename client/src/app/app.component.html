@@ -21,9 +21,15 @@
             <td> ${{stock.stockQuotes?.price | number}} </td>
             <td> {{stock.stockQuotes?.volume | number}} </td>
           </tr>
-          <tr *ngIf="stock === selectedStock">
+          <tr class="stock-table__expanded-row"
+              [class.d-none]="stock !== selectedStock">
             <td colspan="3">
-              <app-stock-details [symbol]="stock.symbol"></app-stock-details>
+              <div *ngIf="stock === selectedStock"
+                   [@slide]>
+                <app-stock-details [symbol]="stock.symbol"
+                                   [stock]="stock">
+                </app-stock-details>
+              </div>
             </td>
           </tr>
         </ng-container>

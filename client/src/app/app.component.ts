@@ -6,10 +6,14 @@ import { StockService } from './services/stock.service';
 // Models
 import { Stock } from './models/stock';
 
+// Animations
+import { slide } from './animations/animations';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [slide]
 })
 export class AppComponent implements OnInit {
 

@@ -1,11 +1,15 @@
 <div class="stock-details">
-  <chart class="stock-details__chart"
-         *ngIf="data"
-         [type]="'line'"
-         [data]="data"
-         [options]="options"
-         >
-  </chart>
+  <ng-container *ngIf="data">
+    <h3>
+      {{stock.name}}
+    </h3>
+    <chart class="stock-details__chart"
+           [type]="'line'"
+           [data]="data"
+           [options]="options"
+           >
+    </chart>
+  </ng-container>
 
   <div class="sk-folding-cube"
        *ngIf="!data">

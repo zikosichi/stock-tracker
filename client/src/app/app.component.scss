@@ -48,4 +48,10 @@
       background-color: rgba($white, .1);
     }
   }
+
+  &__expanded-row {
+    td {
+      padding: 0;
+    }
+  }
 }

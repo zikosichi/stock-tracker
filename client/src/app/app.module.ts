@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
@@ -25,6 +26,7 @@ import { StockDetailsComponent } from './components/stock-details/stock-details.
     HttpClientModule,
     ChartModule,
     FormsModule,
+    BrowserAnimationsModule,
     NgbTypeaheadModule.forRoot(),
   ],
   providers: [StockService],

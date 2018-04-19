@@ -3,6 +3,9 @@ import { Component, OnInit, Input } from '@angular/core';
 // Service
 import { StockService } from '../../services/stock.service';
 
+// Models
+import { Stock } from '../../models/stock';
+
 @Component({
   selector: 'app-stock-details',
   templateUrl: './stock-details.component.html',
@@ -12,6 +15,9 @@ export class StockDetailsComponent implements OnInit {
 
   @Input()
   symbol: string;
+
+  @Input()
+  stock: Stock;
 
   data: any;
 
