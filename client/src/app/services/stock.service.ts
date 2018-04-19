@@ -83,24 +83,30 @@ export class StockService {
    * @memberof StockService
    */
   getStockDailyData(symbol: string, type = 'TIME_SERIES_DAILY', interval = 'Daily'): Observable<StockDetails[]> {
-    const params = new HttpParams()
+    let params = new HttpParams()
       .set('function', type)
-      .set('interval', interval.toString() + 'min')
       .set('apikey', environment.apiKey)
       .set('symbol', symbol);
+
+    if (interval !== 'Daily') {
+      params = params.set('interval', interval);
+    }
 
     return this.http.get<StockDetails[]>(`${environment.apiUrl}/query?`, {
       params: params
     })
       .map(res => {
         console.log(res);
-
+        
         return Object.entries(res[`Time Series (${interval})`]).map(key => {
           return {
             date: key[0],
             ...key[1]
           };
         });
+      })
+      .map(res => {
+        return res.sort((a, b) => new Date(a.date) > new Date(b.date) ? 1 : -1);
       })
       .map(res => {
         return Deserialize(res || [], StockDetails);

@@ -1,5 +1,6 @@
 <div class="stock-details">
   <chart class="stock-details__chart"
+         *ngIf="data"
          [type]="'line'"
          [data]="data"
          [options]="options">

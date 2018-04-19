@@ -13,15 +13,7 @@ export class StockDetailsComponent implements OnInit {
   @Input()
   symbol: string;
 
-  data: any = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-      {
-        label: "My First dataset",
-        data: [65, 59, 80, 81, 56, 55, 40]
-      }
-    ]
-  };
+  data: any;
 
   options = {
     responsive: true,
@@ -41,9 +33,10 @@ export class StockDetailsComponent implements OnInit {
 
     this.stockService.getStockDailyData(this.symbol).subscribe(res => {
       console.log(res);
+      
       const labels = res.map(details => details.date.toString());
       const dataset = {
-        label: 'ziko sichi',
+        label: this.symbol,
         data: res.map(details => details.open)
       };
       this.data = {
