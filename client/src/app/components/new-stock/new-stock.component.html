@@ -3,6 +3,7 @@
        [ngbTypeahead]="search"
        [resultTemplate]="rt"
        [inputFormatter]="formatter"
+       [(ngModel)]="model"
        (selectItem)="onCompanySelect($event)"
        />
 

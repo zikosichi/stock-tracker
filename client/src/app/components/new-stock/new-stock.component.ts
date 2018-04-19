@@ -17,6 +17,7 @@ export class NewStockComponent implements OnInit {
 
   @Output()
   select: EventEmitter<Company> = new EventEmitter<Company>();
+  model: string;
 
   companies: Company[] = [];
 
@@ -48,6 +49,9 @@ export class NewStockComponent implements OnInit {
    */
   onCompanySelect(c: any) {
     this.select.emit(c.item);
+    setTimeout(() => {
+      this.model = '';
+    });
   }
 
 }
