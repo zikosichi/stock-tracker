@@ -5,8 +5,6 @@
   <app-new-stock (select)="onStockSelect($event)">
   </app-new-stock>
 
-  <pre>{{stockService.getStocks | json}}</pre>
-
   <table class="table mt-3">
     <thead>
       <tr>
@@ -16,20 +14,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th>2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-      <tr>
-        <th>3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
+      <tr *ngFor="let stock of stocks">
+        <th> {{stock.name}} </th>
+        <td> ${{stock.stockQuotes?.price | number}} </td>
+        <td> {{stock.stockQuotes?.volume | number}} </td>
       </tr>
     </tbody>
   </table>

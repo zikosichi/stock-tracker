@@ -7,7 +7,7 @@ export class Stock {
   @deserializeAs('Sector') public sector: string;
   @deserializeAs('Industry') public industry: string;
   @deserializeAs('SummaryQuote') public summaryQuote: string;
-  @deserializeAs('stockQuotes') public stockQuotes: StockQuotes[];
+  @deserializeAs('stockQuotes') public stockQuotes: StockQuotes;
 }
 
 export class StockQuotes {

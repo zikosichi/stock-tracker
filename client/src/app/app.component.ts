@@ -23,19 +23,32 @@ export class AppComponent implements OnInit {
     this.getStocks();
   }
 
+  /**
+   * Save new stock on stock select
+   *
+   * @param {Stock} c
+   * @memberof AppComponent
+   */
   onStockSelect(c: Stock) {
     this.stockService.saveStock(c);
     this.getStocks();
   }
 
+  /**
+   * Get saved stocks from local storage
+   * and populate each item with quotes
+   *
+   * @memberof AppComponent
+   */
   getStocks() {
     this.stockService.getStocks().subscribe(res => {
       this.stocks = res;
       const stockSymbols = res.map(c => c.symbol).join(',');
       this.stockService.getBatchStockQuotes(stockSymbols).subscribe(quotes => {
-        console.log(quotes);
+        this.stocks.forEach(stock => {
+          stock.stockQuotes = quotes.find(q => q.symbol === stock.symbol);
+        });
       });
     });
   }
-
 }
