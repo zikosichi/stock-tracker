@@ -1,2 +1,15 @@
 @import './theme/bootstrap';
 @import './theme/loading';
+@import './theme/variables';
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  color: $white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  background: linear-gradient(40deg, $dark, $dark + 30) fixed;
+}

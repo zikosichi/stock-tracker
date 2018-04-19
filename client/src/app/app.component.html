@@ -1,31 +1,33 @@
-<div class="container container--sm pt-5">
+<div class="container container--sm">
+  <div class="stock">
+    <h1 class="stock-header">Stocks Overview</h1>
 
-  <h3>Stocks Overview</h3>
+    <!-- <app-new-stock (select)="onStockSelect($event)">
+    </app-new-stock> -->
 
-  <app-new-stock (select)="onStockSelect($event)">
-  </app-new-stock>
-
-  <table class="table mt-3">
-    <thead>
-      <tr>
-        <th scope="col"> Stock </th>
-        <th scope="col"> Price </th>
-        <th scope="col"> Volume </th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let stock of stocks">
-        <tr (click)="toggleStock(stock)">
-          <th> {{stock.name}} </th>
-          <td> ${{stock.stockQuotes?.price | number}} </td>
-          <td> {{stock.stockQuotes?.volume | number}} </td>
+    <table class="table mt-3 stock-table">
+      <thead>
+        <tr>
+          <th scope="col"> Stock </th>
+          <th scope="col"> Price </th>
+          <th scope="col"> Volume </th>
         </tr>
-        <tr *ngIf="stock === selectedStock">
-          <td colspan="3">
-            <app-stock-details [symbol]="stock.symbol"></app-stock-details>
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let stock of stocks">
+          <tr (click)="toggleStock(stock)"
+              class="stock-table__row">
+            <td> {{stock.name}} </td>
+            <td> ${{stock.stockQuotes?.price | number}} </td>
+            <td> {{stock.stockQuotes?.volume | number}} </td>
+          </tr>
+          <tr *ngIf="stock === selectedStock">
+            <td colspan="3">
+              <app-stock-details [symbol]="stock.symbol"></app-stock-details>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>

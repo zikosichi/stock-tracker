@@ -1,0 +1,50 @@
+@import '../theme/variables';
+
+.stock {
+  padding: 40px;
+  margin-top: 30px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba($dark, .9);
+  background-color: rgba($white, .03);
+}
+
+.stock-header {
+  font-weight: 200;
+  margin: 80px 0 80px;
+}
+
+.stock-table {
+  color: $white;
+  font-size: 18px;
+
+  td, th {
+    border-color: rgba($white, .1);
+
+    &:first-child {
+      border-radius: 3px 0 0 3px;
+    }
+
+    &:last-child {
+      border-radius: 0 3px 0 3px;
+    }
+  }
+
+  th {
+    border-top: none;
+    border-bottom: none;
+    color: $red;
+    text-shadow: 0 0 3px rgba($red + 30, .3);
+    font-size: 34px;
+    font-weight: 800;
+    // text-transform: uppercase;
+  }
+
+  &__row {
+    cursor: pointer;
+    transition: .2s all;
+
+    &:hover {
+      background-color: rgba($white, .1);
+    }
+  }
+}
