@@ -1,3 +1,5 @@
+@import './variables';
+
 // https://github.com/tobiasahlin/SpinKit/blob/master/css/spinners/11-folding-cube.css
 
 /*
@@ -38,7 +40,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background-color: $white;
   -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
   animation: sk-foldCubeAngle 2.4s infinite linear both;
   -webkit-transform-origin: 100% 100%;

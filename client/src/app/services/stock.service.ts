@@ -104,7 +104,7 @@ export class StockService {
         });
       })
       .map(res => {
-        return res.sort((a, b) => new Date(a.date) > new Date(b.date) ? 1 : -1);
+        return res.sort((a, b) => new Date(a.date) > new Date(b.date) ? 1 : -1).splice(0, 30);
       })
       .map(res => {
         return Deserialize(res || [], StockDetails);

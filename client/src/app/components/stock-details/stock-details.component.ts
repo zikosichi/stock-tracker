@@ -17,6 +17,12 @@ export class StockDetailsComponent implements OnInit {
 
   options = {
     responsive: true,
+    title: {
+      display: true,
+    },
+    legend: {
+      display: false
+    }
   };
 
   constructor(
@@ -34,11 +40,14 @@ export class StockDetailsComponent implements OnInit {
       const labels = res.map(details => details.date.toString());
       const dataset = {
         label: this.symbol,
+        borderColor: 'rgb(255, 99, 132)',
+        pointRadius: 2,
+        fill: false,
         data: res.map(details => details.open)
       };
       this.data = {
         labels: labels,
-        datasets: [dataset]
+        datasets: [dataset],
       };
     });
   }
