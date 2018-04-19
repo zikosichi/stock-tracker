@@ -1,3 +1,11 @@
-<p>
-  new-stock works!
-</p>
+<input type="text"
+       class="form-control"
+       [ngbTypeahead]="search"
+       [resultTemplate]="rt"
+       [inputFormatter]="formatter"
+       (selectItem)="onCompanySelect($event)"
+       />
+
+<ng-template #rt let-r="result" let-t="term">
+  {{r.Name}} - {{t}}
+</ng-template>
