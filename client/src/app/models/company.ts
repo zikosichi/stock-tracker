@@ -1,11 +1,10 @@
-export interface Company {
-  Symbol: string;
-  Name: string;
-  LastSale: number;
-  MarketCap: number;
-  ADR_TSO: string;
-  IPOyear: number;
-  Sector: string;
-  Industry: string;
-  SummaryQuote: string;
+import { deserializeAs } from 'cerialize';
+
+export class Company {
+  @deserializeAs('Symbol') public symbol: string;
+  @deserializeAs('Name') public name: string;
+  @deserializeAs('IPOyear') public ipoYear: string;
+  @deserializeAs('Sector') public sector: string;
+  @deserializeAs('Industry') public industry: string;
+  @deserializeAs('SummaryQuote') public summaryQuote: string;
 }

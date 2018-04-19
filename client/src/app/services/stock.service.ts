@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import { Deserialize } from 'cerialize';
 import 'rxjs/add/operator/map';
 
 // Models
@@ -14,7 +15,8 @@ export class StockService {
   ) { }
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(`./assets/companylist.json`);
+    return this.http.get<Company[]>(`./assets/companylist.json`)
+      .map(res => Deserialize(res || [], Company));
   }
 
 }
