@@ -5,7 +5,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 // Models
-import { Company } from '../../models/company';
+import { Stock } from '../../models/company';
 import { IfObservable } from 'rxjs/observable/IfObservable';
 
 @Component({
@@ -16,20 +16,20 @@ import { IfObservable } from 'rxjs/observable/IfObservable';
 export class NewStockComponent implements OnInit {
 
   @Output()
-  select: EventEmitter<Company> = new EventEmitter<Company>();
+  select: EventEmitter<Stock> = new EventEmitter<Stock>();
   model: string;
 
-  companies: Company[] = [];
+  companies: Stock[] = [];
 
   // Format input
-  formatter = (x: { Name: string}) => x.Name;
+  formatter = (x: { name: string}) => x.name;
 
   // Filter results
   search = (text$: Observable<string>) =>
     text$
       .distinctUntilChanged()
       .map(term => term.length < 2 ? []
-        : this.companies.filter(c => c.Name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        : this.companies.filter(c => c.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
 
   constructor(
     private stockService: StockService

@@ -1,6 +1,6 @@
 import { deserializeAs } from 'cerialize';
 
-export class Company {
+export class Stock {
   @deserializeAs('Symbol') public symbol: string;
   @deserializeAs('Name') public name: string;
   @deserializeAs('IPOyear') public ipoYear: string;
