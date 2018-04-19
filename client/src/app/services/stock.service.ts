@@ -72,4 +72,26 @@ export class StockService {
       return Deserialize(res['Stock Quotes'] || [], StockQuotes);
     });
   }
+
+
+
+  /**
+   * Get daily date of the stock
+   *
+   * @param {string} symbol
+   * @returns {Observable<StockQuotes[]>}
+   * @memberof StockService
+   */
+  getStockDailyData(symbol: string): Observable<StockQuotes[]> {
+    const params = new HttpParams()
+      .set('function', 'TIME_SERIES_DAILY')
+      .set('apikey', environment.apiKey)
+      .set('symbols', symbol);
+
+    return this.http.get<StockQuotes[]>(`${environment.apiUrl}/`, {
+      params: params
+    }).map(res => {
+      return Deserialize(res['Stock Quotes'] || [], StockQuotes);
+    });
+  }
 }

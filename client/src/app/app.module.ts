@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NewStockComponent } from './components/new-stock/new-stock.component';
+import { ChartModule } from 'angular2-chartjs';
 
 // Ng bootstrap
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,15 +12,18 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 // Services
 import { StockService } from './services/stock.service';
 import { FormsModule } from '@angular/forms';
+import { StockDetailsComponent } from './components/stock-details/stock-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewStockComponent,
+    StockDetailsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ChartModule,
     FormsModule,
     NgbTypeaheadModule.forRoot(),
   ],

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 // Models
-import { Stock } from '../../models/company';
+import { Stock } from '../../models/stock';
 import { IfObservable } from 'rxjs/observable/IfObservable';
 
 @Component({
