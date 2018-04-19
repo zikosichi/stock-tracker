@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Deserialize } from 'cerialize';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
 // Models
-import { Stock } from '../models/company';
+import { Stock, StockQuotes } from '../models/stock';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class StockService {
@@ -51,5 +52,24 @@ export class StockService {
    */
   getStocks(): Observable<Stock[]> {
     return Observable.of(this.savedStocks);
+  }
+
+  /**
+   * Get stock batch details
+   *
+   * @param {string} symbols
+   * @memberof StockService
+   */
+  getBatchStockQuotes(symbols: string): Observable<StockQuotes[]> {
+    const params = new HttpParams()
+      .set('function', 'BATCH_STOCK_QUOTES')
+      .set('apikey', environment.apiKey)
+      .set('symbols', symbols);
+
+    return this.http.get<StockQuotes[]>(`${environment.apiUrl}/`, {
+      params: params
+    }).map(res => {
+      return Deserialize(res['Stock Quotes'] || [], StockQuotes);
+    });
   }
 }

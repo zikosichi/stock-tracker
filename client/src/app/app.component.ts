@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { StockService } from './services/stock.service';
 
 // Models
-import { Stock } from './models/company';
+import { Stock } from './models/stock';
 
 @Component({
   selector: 'app-root',
@@ -30,8 +30,11 @@ export class AppComponent implements OnInit {
 
   getStocks() {
     this.stockService.getStocks().subscribe(res => {
-      console.log(res);
       this.stocks = res;
+      const stockSymbols = res.map(c => c.symbol).join(',');
+      this.stockService.getBatchStockQuotes(stockSymbols).subscribe(quotes => {
+        console.log(quotes);
+      });
     });
   }
 
