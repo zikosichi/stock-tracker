@@ -82,9 +82,10 @@ export class StockService {
    * @returns {Observable<StockDetails[]>}
    * @memberof StockService
    */
-  getStockDailyData(symbol: string): Observable<StockDetails[]> {
+  getStockDailyData(symbol: string, type = 'TIME_SERIES_DAILY', interval = 'Daily'): Observable<StockDetails[]> {
     const params = new HttpParams()
-      .set('function', 'TIME_SERIES_DAILY')
+      .set('function', type)
+      .set('interval', interval.toString() + 'min')
       .set('apikey', environment.apiKey)
       .set('symbol', symbol);
 
@@ -92,9 +93,11 @@ export class StockService {
       params: params
     })
       .map(res => {
-        return Object.entries(res['Time Series (Daily)']).map(key => {
+        console.log(res);
+
+        return Object.entries(res[`Time Series (${interval})`]).map(key => {
           return {
-            name: key[0],
+            date: key[0],
             ...key[1]
           };
         });

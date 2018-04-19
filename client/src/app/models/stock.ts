@@ -18,7 +18,7 @@ export class StockQuotes {
 }
 
 export class StockDetails {
-  @deserializeAs('name') public name: string;
+  @deserializeAs('date') public date: Date;
   @deserializeAs('1. open') public open: string;
   @deserializeAs('2. high') public high: number;
   @deserializeAs('3. low') public low: number;
