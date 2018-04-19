@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
 // Models
-import { Stock, StockQuotes } from '../models/stock';
+import { Stock, StockQuotes, StockDetails } from '../models/stock';
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -66,7 +66,7 @@ export class StockService {
       .set('apikey', environment.apiKey)
       .set('symbols', symbols);
 
-    return this.http.get<StockQuotes[]>(`${environment.apiUrl}/`, {
+    return this.http.get<StockQuotes[]>(`${environment.apiUrl}/query?`, {
       params: params
     }).map(res => {
       return Deserialize(res['Stock Quotes'] || [], StockQuotes);
@@ -79,19 +79,33 @@ export class StockService {
    * Get daily date of the stock
    *
    * @param {string} symbol
-   * @returns {Observable<StockQuotes[]>}
+   * @returns {Observable<StockDetails[]>}
    * @memberof StockService
    */
-  getStockDailyData(symbol: string): Observable<StockQuotes[]> {
+  getStockDailyData(symbol: string): Observable<StockDetails[]> {
     const params = new HttpParams()
       .set('function', 'TIME_SERIES_DAILY')
       .set('apikey', environment.apiKey)
-      .set('symbols', symbol);
+      .set('symbol', symbol);
 
-    return this.http.get<StockQuotes[]>(`${environment.apiUrl}/`, {
+    return this.http.get<StockDetails[]>(`${environment.apiUrl}/query?`, {
       params: params
-    }).map(res => {
-      return Deserialize(res['Stock Quotes'] || [], StockQuotes);
-    });
+    })
+      .map(res => {
+        return Object.entries(res['Time Series (Daily)']).map(key => {
+          return {
+            name: key[0],
+            ...key[1]
+          };
+        });
+      })
+      .map(res => {
+        return Deserialize(res || [], StockDetails);
+      });
+  }
+
+  private parseStockDetails(obj: any) {
+    const key = Object.keys(obj)[0];
+    console.log(key);
   }
 }
