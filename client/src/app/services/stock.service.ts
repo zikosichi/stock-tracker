@@ -96,8 +96,6 @@ export class StockService {
       params: params
     })
       .map(res => {
-        console.log(res);
-        
         return Object.entries(res[`Time Series (${interval})`]).map(key => {
           return {
             date: key[0],

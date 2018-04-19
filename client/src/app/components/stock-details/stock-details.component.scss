@@ -1,5 +1,11 @@
 .stock-details {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &__chart {
     height: 400px;
+    width: 100%;
   }
 }

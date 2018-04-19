@@ -14,6 +14,7 @@ import { Stock } from './models/stock';
 export class AppComponent implements OnInit {
 
   stocks: Stock[] = [];
+  selectedStock: Stock;
 
   constructor(
     private stockService: StockService
@@ -50,5 +51,15 @@ export class AppComponent implements OnInit {
         });
       });
     });
+  }
+
+  /**
+   * Toggle stock details
+   *
+   * @param {Stock} stock
+   * @memberof AppComponent
+   */
+  toggleStock(stock: Stock) {
+    this.selectedStock = this.selectedStock === stock ? null : stock;
   }
 }

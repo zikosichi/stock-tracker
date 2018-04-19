@@ -14,14 +14,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let stock of stocks">
-        <th> {{stock.name}} </th>
-        <td> ${{stock.stockQuotes?.price | number}} </td>
-        <td> {{stock.stockQuotes?.volume | number}} </td>
-      </tr>
+      <ng-container *ngFor="let stock of stocks">
+        <tr (click)="toggleStock(stock)">
+          <th> {{stock.name}} </th>
+          <td> ${{stock.stockQuotes?.price | number}} </td>
+          <td> {{stock.stockQuotes?.volume | number}} </td>
+        </tr>
+        <tr *ngIf="stock === selectedStock">
+          <td colspan="3">
+            <app-stock-details [symbol]="stock.symbol"></app-stock-details>
+          </td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
-
-  <app-stock-details [symbol]="'FB'"></app-stock-details>
-
 </div>

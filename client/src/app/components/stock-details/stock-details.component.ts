@@ -17,7 +17,6 @@ export class StockDetailsComponent implements OnInit {
 
   options = {
     responsive: true,
-    maintainAspectRatio: false
   };
 
   constructor(
@@ -32,8 +31,6 @@ export class StockDetailsComponent implements OnInit {
     if (!this.symbol) { return; }
 
     this.stockService.getStockDailyData(this.symbol).subscribe(res => {
-      console.log(res);
-      
       const labels = res.map(details => details.date.toString());
       const dataset = {
         label: this.symbol,
