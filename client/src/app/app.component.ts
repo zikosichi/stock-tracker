@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 
   stocks: Stock[] = [];
   selectedStock: Stock;
+  isLoadingStocks = false;
 
   constructor(
     private stockService: StockService
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit {
    * @memberof AppComponent
    */
   getStocks() {
+    this.isLoadingStocks = true;
     this.stockService.getStocks().subscribe(res => {
       this.stocks = res;
       const stockSymbols = res.map(c => c.symbol).join(',');
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
         this.stocks.forEach(stock => {
           stock.stockQuotes = quotes.find(q => q.symbol === stock.symbol);
         });
+        this.isLoadingStocks = false;
       });
     });
   }

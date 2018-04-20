@@ -2,10 +2,11 @@
   <div class="stock">
     <h1 class="stock-header">Stocks Overview</h1>
 
-    <!-- <app-new-stock (select)="onStockSelect($event)">
-    </app-new-stock> -->
+    <app-new-stock (select)="onStockSelect($event)">
+    </app-new-stock>
 
-    <table class="table mt-3 stock-table">
+    <table class="table mt-3 stock-table"
+           *ngIf="!isLoadingStocks && stocks.length">
       <thead>
         <tr>
           <th scope="col"> Stock </th>
@@ -36,5 +37,15 @@
         </ng-container>
       </tbody>
     </table>
+
+    <ng-container *ngIf="isLoadingStocks">
+      <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+      </div>
+    </ng-container>
+
   </div>
 </div>
