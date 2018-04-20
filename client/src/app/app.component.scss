@@ -50,8 +50,6 @@
   }
 
   &__expanded-row {
-    td {
-      padding: 0;
-    }
+    overflow: hidden;
   }
 }

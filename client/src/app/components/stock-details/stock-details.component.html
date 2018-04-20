@@ -1,5 +1,6 @@
 <div class="stock-details">
-  <ng-container *ngIf="data">
+  <div *ngIf="data"
+       class="stock-details__content">
     <h3>
       {{stock.name}}
     </h3>
@@ -9,7 +10,7 @@
            [options]="options"
            >
     </chart>
-  </ng-container>
+  </div>
 
   <div class="sk-folding-cube"
        *ngIf="!data">
