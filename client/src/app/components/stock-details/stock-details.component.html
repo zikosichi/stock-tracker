@@ -1,9 +1,9 @@
 <div class="stock-details">
   <div *ngIf="data"
        class="stock-details__content">
-    <h3>
+    <h4>
       {{stock.name}}
-    </h3>
+    </h4>
     <chart class="stock-details__chart"
            [type]="'line'"
            [data]="data"
