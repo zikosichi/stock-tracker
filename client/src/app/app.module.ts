@@ -14,12 +14,14 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { StockService } from './services/stock.service';
 import { FormsModule } from '@angular/forms';
 import { StockDetailsComponent } from './components/stock-details/stock-details.component';
+import { SegmentComponent } from './components/segment/segment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewStockComponent,
     StockDetailsComponent,
+    SegmentComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,11 +7,14 @@
   border-radius: 5px;
   box-shadow: 0 15px 30px rgba($dark, .9);
   background-color: rgba($white, .03);
-}
 
-.stock-header {
-  font-weight: 200;
-  margin: 40px 0 40px;
+  &__header {
+    margin: 40px 0 40px;
+  }
+
+  &__title {
+    font-weight: 200;
+  }
 }
 
 .stock-table {

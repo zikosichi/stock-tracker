@@ -1,6 +1,12 @@
 <div class="container container--sm">
   <div class="stock">
-    <h1 class="stock-header">Stocks Overview</h1>
+    <div class="stock__header d-flex align-items-center">
+      <h1 class="stock__title mb-0">
+        Stocks Overview
+      </h1>
+
+      <app-segment class="ml-auto"></app-segment>
+    </div>
 
     <app-new-stock (select)="onStockSelect($event)">
     </app-new-stock>
