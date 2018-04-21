@@ -15,9 +15,10 @@
            *ngIf="!isLoadingStocks && stocks.length">
       <thead>
         <tr>
-          <th scope="col"> Stock </th>
-          <th scope="col"> Price </th>
-          <th scope="col"> Volume </th>
+          <th> Stock </th>
+          <th> Price </th>
+          <th> Volume </th>
+          <th width="5"></th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +31,11 @@
             </td>
             <td>
               {{stock.stockQuotes?.volume ? (stock.stockQuotes?.volume | currency: 'USD') : '--'}}
+            </td>
+            <td>
+              <button class="stock-table__remove-btn">
+                <i class="fa fa-trash-o"></i>
+              </button>
             </td>
           </tr>
           <tr>

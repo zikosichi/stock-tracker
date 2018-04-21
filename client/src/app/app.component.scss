@@ -49,10 +49,29 @@
 
     &:hover {
       background-color: rgba($white, .1);
+
+      .stock-table__remove-btn {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
   }
 
   &__expanded-row {
     overflow: hidden;
+  }
+
+  &__remove-btn {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    transition: .3s all;
+    opacity: 0;
+    transform: translateX(5px);
+
+    &:hover {
+      color: $red;
+    }
   }
 }
