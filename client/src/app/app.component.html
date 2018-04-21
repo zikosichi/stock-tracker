@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngFor="let stock of stocks">
+        <ng-container *ngFor="let stock of stocks; trackBy: trackByFn">
           <tr (click)="toggleStock(stock)"
               class="stock-table__row">
             <td> {{stock.name}} </td>

@@ -84,4 +84,16 @@ export class AppComponent implements OnInit {
     this.stockService.deleteStockById(stock.id);
     this.getStocks();
   }
+
+  /**
+   * Track by function for stocks list
+   *
+   * @param {number} index
+   * @param {Stock} item
+   * @returns
+   * @memberof AppComponent
+   */
+  trackByFn(index: number, item: Stock) {
+    return item.id;
+  }
 }
