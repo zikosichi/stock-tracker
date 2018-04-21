@@ -15,6 +15,10 @@ export class StockQuotes {
   @deserializeAs('2. price') public price: number;
   @deserializeAs('3. volume') public volume: number;
   @deserializeAs('4. timestamp') public timestamp: Date;
+
+  public static OnDeserialized(instance: StockQuotes, json: any): void {
+    instance.volume = Number.isInteger(instance.volume) ? instance.volume : 0;
+  }
 }
 
 export class StockDetails {
