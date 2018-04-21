@@ -33,7 +33,8 @@
               {{stock.stockQuotes?.volume ? (stock.stockQuotes?.volume | currency: 'USD') : '--'}}
             </td>
             <td>
-              <button class="stock-table__remove-btn">
+              <button class="stock-table__remove-btn"
+                      (click)="deleteStock(stock); $event.stopPropagation()">
                 <i class="fa fa-trash-o"></i>
               </button>
             </td>

@@ -69,4 +69,15 @@ export class AppComponent implements OnInit {
   toggleStock(stock: Stock) {
     this.selectedStock = this.selectedStock === stock ? null : stock;
   }
+
+  /**
+   * Remove stock from the list
+   *
+   * @param {Stock} stock
+   * @memberof AppComponent
+   */
+  deleteStock(stock: Stock) {
+    this.stockService.deleteStockById(stock.id);
+    this.getStocks();
+  }
 }

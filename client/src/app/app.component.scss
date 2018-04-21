@@ -68,6 +68,7 @@
     cursor: pointer;
     transition: .3s all;
     opacity: 0;
+    outline: none;
     transform: translateX(5px);
 
     &:hover {

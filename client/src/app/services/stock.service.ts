@@ -40,7 +40,23 @@ export class StockService {
    */
   saveStock(c: Stock) {
     const stocks = this.savedStocks;
+    c.id = this.uniqueId();
     stocks.push(c);
+    localStorage.setItem('tracker.stocks', JSON.stringify(stocks));
+  }
+
+  /**
+   * Delete stock by id
+   *
+   * @param {string} id
+   * @memberof StockService
+   */
+  deleteStockById(id: string) {
+    const stocks = this.savedStocks;
+    const index = stocks.findIndex(s => s.id === id);
+    if (index !== -1) {
+      stocks.splice(index, 1);
+    }
     localStorage.setItem('tracker.stocks', JSON.stringify(stocks));
   }
 
@@ -72,8 +88,6 @@ export class StockService {
       return Deserialize(res['Stock Quotes'] || [], StockQuotes);
     });
   }
-
-
 
   /**
    * Get daily date of the stock
@@ -111,8 +125,26 @@ export class StockService {
       });
   }
 
+  /**
+   * Moves object key inside the object
+   *
+   * @private
+   * @param {*} obj
+   * @memberof StockService
+   */
   private parseStockDetails(obj: any) {
     const key = Object.keys(obj)[0];
     console.log(key);
+  }
+
+  /**
+   * Generates random ID
+   *
+   * @private
+   * @returns
+   * @memberof StockService
+   */
+  private uniqueId() {
+    return 'id-' + Math.random().toString(36).substr(2, 16);
   }
 }
