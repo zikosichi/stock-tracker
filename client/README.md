@@ -1,7 +1,6 @@
 # Preview
 ![alt text](https://bytebucket.org/pq-recruiting/frontend-market-tracker-zviadsichinava-gmail.com/raw/9c49f630c890e2ce0d230c567ccc4452029ce282/client/src/assets/screencast.gif?token=37151bfd7591e98291bc86f12b501c2e715309df "Logo Title Text 1")
 
-
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
