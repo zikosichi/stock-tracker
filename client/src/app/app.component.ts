@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   stocks: Stock[] = [];
   selectedStock: Stock;
-  isLoadingStocks = false;
+  isLoadingStocksPrices = false;
 
   constructor(
     private stockService: StockService
@@ -47,16 +47,20 @@ export class AppComponent implements OnInit {
    * @memberof AppComponent
    */
   getStocks() {
-    this.isLoadingStocks = true;
     this.stockService.getStocks().subscribe(res => {
       this.stocks = res;
-      const stockSymbols = res.map(c => c.symbol).join(',');
-      this.stockService.getBatchStockQuotes(stockSymbols).subscribe(quotes => {
-        this.stocks.forEach(stock => {
-          stock.stockQuotes = quotes.find(q => q.symbol === stock.symbol);
-        });
-        this.isLoadingStocks = false;
+      this.updateStockPrices(this.stocks);
+    });
+  }
+
+  updateStockPrices(stocks: Stock[]) {
+    this.isLoadingStocksPrices = true;
+    const stockSymbols = stocks.map(c => c.symbol).join(',');
+    this.stockService.getBatchStockQuotes(stockSymbols).subscribe(quotes => {
+      this.stocks.forEach(stock => {
+        stock.stockQuotes = quotes.find(q => q.symbol === stock.symbol);
       });
+      this.isLoadingStocksPrices = false;
     });
   }
 

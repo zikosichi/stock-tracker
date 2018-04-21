@@ -3,7 +3,9 @@
 .type-ahead {
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 200;
+  padding-left: 0;
   color: $light !important;
 
   &:focus {

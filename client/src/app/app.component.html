@@ -12,7 +12,7 @@
     </app-new-stock>
 
     <table class="table mt-3 stock-table"
-           *ngIf="!isLoadingStocks && stocks.length">
+           *ngIf="stocks.length">
       <thead>
         <tr>
           <th> Stock </th>
@@ -28,9 +28,15 @@
             <td> {{stock.name}} </td>
             <td>
               <b>{{stock.stockQuotes?.price | currency: 'USD'}}</b>
+              <i class="fa fa-refresh fa-spin fa-fw"
+                 *ngIf="isLoadingStocksPrices">
+              </i>
             </td>
             <td>
               {{stock.stockQuotes?.volume ? (stock.stockQuotes?.volume | currency: 'USD') : '--'}}
+              <i class="fa fa-refresh fa-spin fa-fw"
+                 *ngIf="isLoadingStocksPrices">
+              </i>
             </td>
             <td>
               <button class="stock-table__remove-btn"
@@ -54,15 +60,5 @@
         </ng-container>
       </tbody>
     </table>
-
-    <ng-container *ngIf="isLoadingStocks">
-      <div class="sk-folding-cube">
-        <div class="sk-cube1 sk-cube"></div>
-        <div class="sk-cube2 sk-cube"></div>
-        <div class="sk-cube4 sk-cube"></div>
-        <div class="sk-cube3 sk-cube"></div>
-      </div>
-    </ng-container>
-
   </div>
 </div>
