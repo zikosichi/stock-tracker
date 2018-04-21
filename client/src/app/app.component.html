@@ -7,7 +7,8 @@
 
       <div class="ml-auto text-muted text-right">
         <small class="font-weight-lighter"> Refresh in every </small>
-        <app-segment [segments]="refreshSegments">
+        <app-segment [segments]="refreshSegments"
+                     (select)="onIntervalChange($event)">
         </app-segment>
       </div>
     </div>

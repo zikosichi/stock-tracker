@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Segment } from '../../models/segment';
 
-
 @Component({
   selector: 'app-segment',
   templateUrl: './segment.component.html',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Services
 import { StockService } from './services/stock.service';
+import { SharedService } from './services/shared.service';
 
 // Models
 import { Stock } from './models/stock';
@@ -29,11 +30,16 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private stockService: StockService
+    private stockService: StockService,
+    private sharedService: SharedService,
   ) { }
 
   ngOnInit() {
     this.getStocks();
+
+    this.sharedService.onRefreshIntervalChange.subscribe(res => {
+      console.log(res);
+    });
   }
 
   /**
@@ -102,5 +108,16 @@ export class AppComponent implements OnInit {
    */
   trackByFn(index: number, item: Stock) {
     return item.id;
+  }
+
+
+  /**
+   * On interval segment change
+   *
+   * @param {Segment} segment
+   * @memberof AppComponent
+   */
+  onIntervalChange(segment: Segment) {
+    this.sharedService.onRefreshIntervalChange.next(segment);
   }
 }

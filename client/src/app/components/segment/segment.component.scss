@@ -1,6 +1,8 @@
 @import '../../../theme/variables';
 
 .segment {
+  line-height: 12px;
+
   &__item {
     font-size: 12px;
     color: $gray;
