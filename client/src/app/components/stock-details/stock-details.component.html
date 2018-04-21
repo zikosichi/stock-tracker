@@ -1,9 +1,14 @@
 <div class="stock-details">
   <div *ngIf="data"
        class="stock-details__content">
-    <h4>
-      {{stock.name}}
-    </h4>
+    <div class="d-flex align-items-center">
+      <h4 class="mb-1">
+        {{stock.name}}
+      </h4>
+      <small class="text-muted ml-auto">
+        IPO Year: {{stock.ipoYear}}
+      </small>
+    </div>
     <chart class="stock-details__chart"
            [type]="'line'"
            [data]="data"
