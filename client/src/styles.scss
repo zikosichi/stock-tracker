@@ -14,3 +14,8 @@ body {
   font-weight: 200;
   background: linear-gradient(40deg, $dark, $dark + 30) fixed;
 }
+
+a {
+  text-decoration: underline;
+  cursor: pointer;
+}

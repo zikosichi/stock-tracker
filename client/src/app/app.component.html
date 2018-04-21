@@ -5,8 +5,15 @@
         Stocks Overview
       </h1>
 
-      <div class="ml-auto text-muted text-right">
-        <small class="font-weight-lighter"> Refresh in every </small>
+      <div class="ml-auto text-muted text-right"
+           *ngIf="stocks.length">
+        <small class="font-weight-lighter">
+          <a (click)="updateStockPrices(stocks)"
+             class="text-underline">
+            refresh
+          </a>
+          in every
+        </small>
         <app-segment [segments]="refreshSegments"
                      (select)="onIntervalChange($event)">
         </app-segment>
@@ -20,9 +27,9 @@
            *ngIf="stocks.length">
       <thead>
         <tr>
-          <th> Stock </th>
-          <th> Price </th>
-          <th> Volume </th>
+          <th width="40%"> Stock </th>
+          <th width="30%"> Price </th>
+          <th width="30%"> Volume </th>
           <th width="5"></th>
         </tr>
       </thead>
