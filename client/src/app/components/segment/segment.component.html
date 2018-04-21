@@ -1,3 +1,8 @@
-<p class="mb-0">
-  segment works!
-</p>
+<div class="segment">
+  <span class="segment__item"
+        [class.segment__item--selected]="segment === selectedSegment"
+        *ngFor="let segment of segments"
+        (click)="selectSegment(segment)">
+    {{segment.name}}
+  </span>
+</div>

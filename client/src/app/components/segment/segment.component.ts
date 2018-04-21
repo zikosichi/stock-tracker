@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Segment } from '../../models/segment';
+
 
 @Component({
   selector: 'app-segment',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SegmentComponent implements OnInit {
 
+  @Input()
+  segments: Segment[];
+
+  @Output()
+  select: EventEmitter<Segment> = new EventEmitter<Segment>();
+
+  selectedSegment: Segment;
+
   constructor() { }
 
   ngOnInit() {
+    this.selectSegment(this.segments[0]);
+  }
+
+  selectSegment(segment: Segment) {
+    this.selectedSegment = segment;
+    this.select.emit(segment);
   }
 
 }

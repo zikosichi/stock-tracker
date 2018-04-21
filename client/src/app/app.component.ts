@@ -5,6 +5,7 @@ import { StockService } from './services/stock.service';
 
 // Models
 import { Stock } from './models/stock';
+import { Segment } from './models/segment';
 
 // Animations
 import { slide } from './animations/animations';
@@ -20,6 +21,12 @@ export class AppComponent implements OnInit {
   stocks: Stock[] = [];
   selectedStock: Stock;
   isLoadingStocksPrices = false;
+  refreshSegments: Segment[] = [
+    { name: '1 min', value: 1 },
+    { name: '5 min', value: 5 },
+    { name: '15 min', value: 15 },
+    { name: '30 min', value: 30 }
+  ];
 
   constructor(
     private stockService: StockService

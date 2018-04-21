@@ -5,7 +5,11 @@
         Stocks Overview
       </h1>
 
-      <app-segment class="ml-auto"></app-segment>
+      <div class="ml-auto text-muted text-right">
+        <small class="font-weight-lighter"> Refresh in every </small>
+        <app-segment [segments]="refreshSegments">
+        </app-segment>
+      </div>
     </div>
 
     <app-new-stock (select)="onStockSelect($event)">
