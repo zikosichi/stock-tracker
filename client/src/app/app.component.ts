@@ -22,11 +22,12 @@ export class AppComponent implements OnInit {
   stocks: Stock[] = [];
   selectedStock: Stock;
   isLoadingStocksPrices = false;
+  refreshInterval: any;
   refreshSegments: Segment[] = [
-    { name: '1 min', value: 1 },
-    { name: '5 min', value: 5 },
-    { name: '15 min', value: 15 },
-    { name: '30 min', value: 30 }
+    { name: '1 min', value: 1000 * 60 * 1 },
+    { name: '5 min', value: 1000 * 60 * 5 },
+    { name: '15 min', value: 1000 * 60 * 15 },
+    { name: '30 min', value: 1000 * 60 * 30 }
   ];
 
   constructor(
@@ -38,8 +39,22 @@ export class AppComponent implements OnInit {
     this.getStocks();
 
     this.sharedService.onRefreshIntervalChange.subscribe(res => {
-      console.log(res);
+      this.setRefreshTimer(res.value);
     });
+  }
+
+  /**
+   * Sets the refresh interval
+   *
+   * @param {number} interval
+   * @memberof AppComponent
+   */
+  setRefreshTimer(interval: number) {
+    clearInterval(this.refreshInterval);
+
+    this.refreshInterval = setInterval(() => {
+      this.updateStockPrices(this.stocks);
+    }, interval);
   }
 
   /**
