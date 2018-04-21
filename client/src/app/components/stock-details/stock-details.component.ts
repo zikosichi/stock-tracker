@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 // Service
 import { StockService } from '../../services/stock.service';
+import { DateRefreshService } from '../../services/date-refresh.service';
 
 // Models
 import { Stock } from '../../models/stock';
@@ -11,7 +12,7 @@ import { Stock } from '../../models/stock';
   templateUrl: './stock-details.component.html',
   styleUrls: ['./stock-details.component.scss']
 })
-export class StockDetailsComponent implements OnInit {
+export class StockDetailsComponent implements OnInit, OnDestroy {
 
   @Input()
   symbol: string;
@@ -20,8 +21,10 @@ export class StockDetailsComponent implements OnInit {
   stock: Stock;
 
   data: any;
+  refreshInterval: any;
+  isUpdatingData = false;
 
-  options = {
+  options: any = {
     responsive: true,
     title: {
       display: true,
@@ -32,16 +35,28 @@ export class StockDetailsComponent implements OnInit {
   };
 
   constructor(
-    private stockService: StockService
+    private stockService: StockService,
+    private dateRefreshService: DateRefreshService,
   ) { }
 
   ngOnInit() {
     this.loadStockData();
+
+    this.dateRefreshService.$onRefreshIntervalTick.subscribe(res => {
+      this.loadStockData();
+    });
   }
 
+  /**
+   * Load stock details data
+   *
+   * @returns
+   * @memberof StockDetailsComponent
+   */
   loadStockData() {
     if (!this.symbol) { return; }
 
+    this.isUpdatingData = true;
     this.stockService.getStockDailyData(this.symbol).subscribe(res => {
       const labels = res.map(details => details.date.toString());
       const dataset = {
@@ -55,7 +70,18 @@ export class StockDetailsComponent implements OnInit {
         labels: labels,
         datasets: [dataset],
       };
+      this.isUpdatingData = false;
     });
+  }
+
+
+  /**
+   * Unsubscribe interval change on Destroy
+   *
+   * @memberof StockDetailsComponent
+   */
+  ngOnDestroy() {
+    this.dateRefreshService.$onRefreshIntervalTick.unsubscribe();
   }
 
 }

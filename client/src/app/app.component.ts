@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Services
 import { StockService } from './services/stock.service';
-import { SharedService } from './services/shared.service';
+import { DateRefreshService } from './services/date-refresh.service';
 
 // Models
 import { Stock } from './models/stock';
@@ -24,37 +24,23 @@ export class AppComponent implements OnInit {
   isLoadingStocksPrices = false;
   refreshInterval: any;
   refreshSegments: Segment[] = [
-    { name: '1 min', value: 1000 * 60 * 1 },
-    { name: '5 min', value: 1000 * 60 * 5 },
+    { name: '1 min',  value: 1000 * 60 * 1 },
+    { name: '5 min',  value: 1000 * 60 * 5 },
     { name: '15 min', value: 1000 * 60 * 15 },
     { name: '30 min', value: 1000 * 60 * 30 }
   ];
 
   constructor(
     private stockService: StockService,
-    private sharedService: SharedService,
+    private dateRefreshService: DateRefreshService,
   ) { }
 
   ngOnInit() {
     this.getStocks();
 
-    this.sharedService.onRefreshIntervalChange.subscribe(res => {
-      this.setRefreshTimer(res.value);
-    });
-  }
-
-  /**
-   * Sets the refresh interval
-   *
-   * @param {number} interval
-   * @memberof AppComponent
-   */
-  setRefreshTimer(interval: number) {
-    clearInterval(this.refreshInterval);
-
-    this.refreshInterval = setInterval(() => {
+    this.dateRefreshService.$onRefreshIntervalTick.subscribe(res => {
       this.updateStockPrices(this.stocks);
-    }, interval);
+    });
   }
 
   /**
@@ -133,6 +119,6 @@ export class AppComponent implements OnInit {
    * @memberof AppComponent
    */
   onIntervalChange(segment: Segment) {
-    this.sharedService.onRefreshIntervalChange.next(segment);
+    this.dateRefreshService.setRefreshTimer(segment);
   }
 }

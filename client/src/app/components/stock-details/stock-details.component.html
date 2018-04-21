@@ -4,6 +4,9 @@
     <div class="d-flex align-items-center">
       <h4 class="mb-1">
         {{stock.name}}
+        <i class="fa fa-refresh fa-spin fa-fw"
+           *ngIf="isUpdatingData">
+        </i>
       </h4>
       <small class="text-muted ml-auto">
         IPO Year: {{stock.ipoYear}}

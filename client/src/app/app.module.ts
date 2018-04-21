@@ -15,7 +15,7 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Services
 import { StockService } from './services/stock.service';
-import { SharedService } from './services/shared.service';
+import { DateRefreshService } from './services/date-refresh.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { SharedService } from './services/shared.service';
   ],
   providers: [
     StockService,
-    SharedService
+    DateRefreshService
   ],
   bootstrap: [AppComponent]
 })
