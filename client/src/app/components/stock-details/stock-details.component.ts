@@ -21,6 +21,7 @@ export class StockDetailsComponent implements OnInit, OnDestroy {
   stock: Stock;
 
   data: any;
+  subscription: any;
   refreshInterval: any;
   isUpdatingData = false;
 
@@ -42,7 +43,7 @@ export class StockDetailsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadStockData();
 
-    this.dateRefreshService.$onRefreshIntervalTick.subscribe(res => {
+    this.subscription = this.dateRefreshService.$onRefreshIntervalTick.subscribe(res => {
       this.loadStockData();
     });
   }
@@ -81,7 +82,7 @@ export class StockDetailsComponent implements OnInit, OnDestroy {
    * @memberof StockDetailsComponent
    */
   ngOnDestroy() {
-    this.dateRefreshService.$onRefreshIntervalTick.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }
