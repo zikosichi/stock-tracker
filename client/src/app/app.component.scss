@@ -55,7 +55,6 @@
     text-shadow: 0 0 3px rgba($red + 30, .3);
     font-size: 34px;
     font-weight: 800;
-    // text-transform: uppercase;
   }
 
   &__row {
@@ -88,6 +87,15 @@
 
     &:hover {
       color: $red;
+    }
+  }
+
+  @media screen and (max-width: $break-sm) {
+    font-size: 16px;
+
+    th {
+      font-size: 24px;
+      font-weight: 600;
     }
   }
 }
