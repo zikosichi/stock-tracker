@@ -15,6 +15,20 @@
   &__title {
     font-weight: 200;
   }
+
+  @media screen and (max-width: $break-sm) {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    .stock__header {
+      margin: 20px 0 20px;
+    }
+
+    .stock__title {
+      font-size: 20px;
+    }
+  }
 }
 
 .stock-table {

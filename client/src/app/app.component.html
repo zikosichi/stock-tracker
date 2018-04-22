@@ -1,13 +1,13 @@
-<div class="container container--sm">
+<div class="container container--sm p-0 p-sm-3">
   <div class="stock">
-    <div class="stock__header d-flex align-items-center">
-      <h1 class="stock__title mb-0">
+    <div class="row stock__header align-items-center">
+      <h1 class="col stock__title mb-0">
         Stocks Overview
       </h1>
 
-      <div class="ml-auto text-muted text-right"
+      <div class="col-auto text-muted text-sm-right"
            *ngIf="stocks.length">
-        <small class="font-weight-lighter">
+        <small class="font-weight-lighter d-none d-sm-block">
           <a (click)="updateStockPrices(stocks)"
              class="text-underline">
             refresh
