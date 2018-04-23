@@ -1,0 +1,76 @@
+<div class="container container--sm p-0 p-sm-3">
+  <div class="stock">
+    <div class="row stock__header align-items-center">
+      <h1 class="col stock__title mb-0">
+        Stocks Overview
+      </h1>
+
+      <div class="col-auto text-muted text-sm-right"
+           *ngIf="stocks.length">
+        <small class="font-weight-lighter d-none d-sm-block">
+          <a (click)="updateStockPrices(stocks)"
+             class="text-underline">
+            refresh
+          </a>
+          in every
+        </small>
+        <app-segment [segments]="refreshSegments"
+                     (select)="onIntervalChange($event)">
+        </app-segment>
+      </div>
+    </div>
+
+    <app-new-stock (select)="onStockSelect($event)">
+    </app-new-stock>
+
+    <table class="table mt-3 stock-table"
+           *ngIf="stocks.length">
+      <thead>
+        <tr>
+          <th width="40%"> Stock </th>
+          <th width="30%"> Price </th>
+          <th width="30%"> Volume </th>
+          <th width="5"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let stock of stocks; trackBy: trackByFn">
+          <tr (click)="toggleStock(stock)"
+              class="stock-table__row">
+            <td> {{stock.name}} </td>
+            <td>
+              <b>{{stock.stockQuotes?.price | currency: 'USD'}}</b>
+              <i class="fa fa-refresh fa-spin fa-fw"
+                 *ngIf="isLoadingStocksPrices">
+              </i>
+            </td>
+            <td>
+              {{stock.stockQuotes?.volume ? (stock.stockQuotes?.volume | currency: 'USD') : '--'}}
+              <i class="fa fa-refresh fa-spin fa-fw"
+                 *ngIf="isLoadingStocksPrices">
+              </i>
+            </td>
+            <td>
+              <button class="stock-table__remove-btn"
+                      (click)="deleteStock(stock); $event.stopPropagation()">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4"
+                class="p-0 border-0">
+              <div *ngIf="stock === selectedStock"
+                   class="stock-table__expanded-row"
+                   [@slide]>
+                <app-stock-details [symbol]="stock.symbol"
+                                   [stock]="stock">
+                </app-stock-details>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

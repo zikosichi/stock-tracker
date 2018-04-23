@@ -1,0 +1,30 @@
+<div class="stock-details px-3 px-sm-0">
+  <div *ngIf="data"
+       class="stock-details__content">
+    <div class="d-flex align-items-center">
+      <h4 class="mb-1">
+        {{stock.name}}
+        <i class="fa fa-refresh fa-spin fa-fw"
+           *ngIf="isUpdatingData">
+        </i>
+      </h4>
+      <small class="text-muted ml-auto">
+        IPO Year: {{stock.ipoYear}}
+      </small>
+    </div>
+    <chart class="stock-details__chart"
+           [type]="'line'"
+           [data]="data"
+           [options]="options"
+           >
+    </chart>
+  </div>
+
+  <div class="sk-folding-cube"
+       *ngIf="!data">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+</div>

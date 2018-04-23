@@ -1,0 +1,101 @@
+@import '../theme/variables';
+
+.stock {
+  padding: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba($dark, .9);
+  background-color: rgba($white, .03);
+
+  &__header {
+    margin: 40px 0 40px;
+  }
+
+  &__title {
+    font-weight: 200;
+  }
+
+  @media screen and (max-width: $break-sm) {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    .stock__header {
+      margin: 20px 0 20px;
+    }
+
+    .stock__title {
+      font-weight: 700;
+      font-size: 22px;
+    }
+  }
+}
+
+.stock-table {
+  color: $white;
+  font-size: 18px;
+
+  td, th {
+    border-color: #484a51;
+
+    &:first-child {
+      border-radius: 3px 0 0 3px;
+    }
+
+    &:last-child {
+      border-radius: 0 3px 0 3px;
+    }
+  }
+
+  th {
+    border-top: none;
+    border-bottom: none;
+    color: $red;
+    text-shadow: 0 0 3px rgba($red + 30, .3);
+    font-size: 34px;
+    font-weight: 800;
+  }
+
+  &__row {
+    cursor: pointer;
+    transition: .2s all;
+
+    &:hover {
+      background-color: rgba($white, .1);
+
+      .stock-table__remove-btn {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__expanded-row {
+    overflow: hidden;
+  }
+
+  &__remove-btn {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    transition: .3s all;
+    opacity: 0;
+    outline: none;
+    transform: translateX(5px);
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  @media screen and (max-width: $break-sm) {
+    font-size: 16px;
+
+    th {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+}
